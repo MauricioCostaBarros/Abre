@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eu Te Amo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #bdbaba; /* Fundo cinza bem clarinho */
+    }
+
+    .container {
+      position: relative;
+      width: 600px; /* Aumentar a largura do envelope */
+      height: 350px; /* Aumentar a altura do envelope */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      margin: 15px; /* Margem em volta do envelope */
+    }
+
+    .envelope {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: #d0e8f2; /* Azul clarinho */
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.2);
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+      padding: 10px; /* Margem interna do envelope */
+    }
+
+    .flap {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #a8d0e6;
+      top: 0;
+      left: 0;
+      transform-origin: top;
+      transform: rotateX(0deg);
+      transition: transform 0.6s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      padding: 5px; /* Margem interna do triângulo */
+    }
+
+    .letter {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      border-radius: 0 0 5px 5px;
+      background-image: repeating-linear-gradient(#000 1px, transparent 1px); /* Linhas horizontais */
+      background-size: 100% 25px; /* Espaçamento entre as linhas */
+    }
+
+    .message {
+      font-size: 20px; /* Diminuir o tamanho da fonte */
+      color: #333;
+      font-family: 'Segoe Script', cursive; /* Mantendo a fonte cursiva */
+      text-align: center;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .message .heart {
+      font-size: 30px;
+      color: red;
+    }
+
+    .phone-link {
+      color: blue; /* Cor do texto que parece link */
+      text-decoration: underline; /* Sublinhado */
+      cursor: pointer; /* Cursor de ponteiro */
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(-180deg);
+    }
+
+    .envelope.open .letter {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .envelope.open .message {
+      display: block;
+    }
+
+    /* Para visualização em dispositivos móveis */
+    @media (max-width: 600px) {
+      .container {
+        width: 400px; /* Aumentar o tamanho para dispositivos móveis */
+        height: 250px;
+      }
+
+      .message {
+        font-size: 18px; /* Ajustar tamanho da fonte para dispositivos móveis */
+      }
+
+      .message .heart {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <div class="message">
+          Sempre que sentir saudade ou achar que eu não te ame, leia esse QrCode.<br>
+          Se não funcionar, ligue para<br>
+          <span class="phone-link" onclick="window.location.href='tel:+5511999999999'">Amor da sua vida</span> <!-- Altere para seu número -->
+          <br><br>
+          Te amo <span class="heart">❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+
+    const toggleEnvelope = () => {
+      envelope.classList.toggle('open');
+    };
+
+    // Adiciona o evento de clique e toque
+    envelope.addEventListener('click', toggleEnvelope);
+    envelope.addEventListener('touchstart', (e) => {
+      e.preventDefault(); // Evita a ação padrão do toque
+      toggleEnvelope();
+    });
+  </script>
+</body>
+</html>
