@@ -76,9 +76,9 @@
     }
 
     .message {
-      font-size: 20px; /* Diminuir o tamanho da fonte */
+      font-size: 22px; /* Diminuir o tamanho da fonte */
       color: #333;
-      font-family: 'Segoe Script', cursive; /* Mantendo a fonte cursiva */
+      font-family: 'Arial', sans-serif; /* Fonte menos cursiva */
       text-align: center;
       line-height: 1.5;
       display: none;
@@ -116,7 +116,7 @@
       }
 
       .message {
-        font-size: 18px; /* Ajustar tamanho da fonte para dispositivos móveis */
+        font-size: 20px; /* Ajustar tamanho da fonte para dispositivos móveis */
       }
 
       .message .heart {
@@ -131,8 +131,8 @@
       <div class="flap"></div>
       <div class="letter">
         <div class="message">
-          Sempre que sentir saudade ou achar que eu não te ame, leia esse QrCode.<br>
-          Se não funcionar, ligue para<br>
+          Sempre que sentir saudade ou achar que eu não te ame, leia esse QR Code.<br>
+          Se não funcionar, ligue para:<br>
           <span class="phone-link" onclick="window.location.href='tel:+5511999999999'">Amor da sua vida</span> <!-- Altere para seu número -->
           <br><br>
           Te amo <span class="heart">❤️</span>
@@ -143,16 +143,8 @@
 
   <script>
     const envelope = document.getElementById('envelope');
-
-    const toggleEnvelope = () => {
+    envelope.addEventListener('click', () => {
       envelope.classList.toggle('open');
-    };
-
-    // Adiciona o evento de clique e toque
-    envelope.addEventListener('click', toggleEnvelope);
-    envelope.addEventListener('touchstart', (e) => {
-      e.preventDefault(); // Evita a ação padrão do toque
-      toggleEnvelope();
     });
   </script>
 </body>
