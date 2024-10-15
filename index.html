@@ -18,8 +18,6 @@
       align-items: center;
       font-family: 'Arial', sans-serif;
       background-color: #ff4c79; /* Fundo cinza bem clarinho */
-      margin-left: 5px;
-      margin-right: 5px;
     }
 
     .container {
@@ -30,7 +28,6 @@
       justify-content: center;
       align-items: center;
       perspective: 1000px;
-      margin: 15px; /* Margem em volta do envelope */
     }
 
     .envelope {
@@ -56,7 +53,6 @@
       transform-origin: top;
       transform: rotateX(0deg);
       transition: transform 0.6s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       clip-path: polygon(0 0, 50% 100%, 100% 0);
       padding: 5px; /* Margem interna do triângulo */
     }
@@ -79,26 +75,15 @@
     }
 
     .message {
-      font-size: 18px; /* Tamanho da fonte */
+      font-size: 20px; /* Diminuir o tamanho da fonte */
       color: #333;
-      font-family: 'Courier New', Courier, monospace; /* Fonte suavemente cursiva */
+      font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte local suavemente cursiva */
       text-align: center;
       line-height: 1.2;
       display: none;
       padding: 10px; /* Espaço interno */
       border-radius: 10px; /* Bordas arredondadas */
       background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
-    }
-
-    .message .heart {
-      font-size: 25px;
-      color: red;
-    }
-
-    .phone-link {
-      color: rgb(77, 77, 235); /* Cor do texto que parece link */
-      cursor: pointer; /* Cursor de ponteiro */
-      font-weight: bold; /* Texto em negrito */
     }
 
     .envelope.open .flap {
@@ -171,7 +156,7 @@
           É o tempo que eu comecei a descobrir o que era amor, e perceber que cada segundo esse amor aumenta mais...
           Se nada disso funcionar, ligue para<br>
           <span class="phone-link" onclick="window.location.href='tel:+5511980198520'">Amor da sua vida</span> 
-          <span class="heart">❤️</span>
+          ❤️
         </div>
       </div>
     </div>
