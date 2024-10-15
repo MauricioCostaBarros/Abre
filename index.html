@@ -27,13 +27,13 @@
       max-width: 600px; /* Largura máxima do envelope */
       display: flex;
       justify-content: center;
-      align-items: flex-start; /* Ajustar alinhamento para cima */
+      align-items: center; /* Centraliza verticalmente */
       perspective: 1000px;
     }
 
     .envelope {
       width: 100%;
-      height: 300px; /* Altura inicial do envelope ajustada */
+      height: 300px; /* Altura inicial do envelope */
       position: relative;
       background: #d0e8f2; /* Azul clarinho */
       border-radius: 5px;
@@ -147,6 +147,14 @@
       font-family: 'Courier New', Courier, monospace; /* Fonte tipo máquina de escrever */
     }
 
+    #contador {
+      font-size: 16px; /* Ajustar tamanho da fonte do contador */
+      color: #333;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #333;
+    }
+
     /* Para visualização em dispositivos móveis */
     @media (max-width: 600px) {
       .container {
@@ -174,14 +182,6 @@
       .address {
         font-size: 12px; /* Ajustar tamanho da fonte para destinatário/remetente */
       }
-    }
-
-    #contador {
-      font-size: 16px; /* Ajustar tamanho da fonte do contador */
-      color: #333;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #333;
     }
   </style>
 </head>
