@@ -18,16 +18,15 @@
       align-items: center;
       font-family: 'Arial', sans-serif;
       background-color: #ff4c79; /* Fundo cinza bem clarinho */
-      margin: 0 5px;
+      margin: 0;
     }
 
     .container {
       position: relative;
       width: 90%; /* Largura responsiva */
       max-width: 600px; /* Largura máxima */
-      height: auto; /* Altura automática */
-      perspective: 1000px;
       margin: 15px; /* Margem em volta do envelope */
+      perspective: 1000px;
     }
 
     .envelope {
@@ -39,7 +38,6 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.2);
       transform-style: preserve-3d;
       transition: transform 1s ease;
-      padding: 10px; /* Margem interna do envelope */
     }
 
     .flap {
@@ -54,17 +52,12 @@
       transition: transform 0.6s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       clip-path: polygon(0 0, 50% 100%, 100% 0);
-      padding: 5px; /* Margem interna do triângulo */
     }
 
     .letter {
       width: 100%;
-      height: auto; /* Altura automática para se ajustar ao conteúdo */
       background: #ffffff;
       padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
@@ -77,11 +70,11 @@
     }
 
     .message {
-      font-size: 20px; /* Diminuir o tamanho da fonte */
+      font-size: 18px; /* Diminuir o tamanho da fonte */
       color: #333;
       font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte local suavemente cursiva */
-      line-height: 1.2;
-      display: none;
+      line-height: 1.5;
+      display: block; /* Altera para block para garantir que seja exibido corretamente */
       padding: 10px; /* Espaço interno */
       border-radius: 10px; /* Bordas arredondadas */
       background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
