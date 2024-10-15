@@ -24,8 +24,8 @@
     .container {
       position: relative;
       width: 100%; /* Largura total */
-      max-width: 600px; /* Largura máxima do envelope */
-      height: 450px; /* Altura do envelope */
+      max-width: 500px; /* Largura máxima do envelope */
+      height: 350px; /* Altura do envelope */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -89,7 +89,7 @@
       border-radius: 10px; /* Bordas arredondadas */
       background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
       overflow-y: auto; /* Adiciona barra de rolagem se necessário */
-      max-height: 300px; /* Altura máxima para a mensagem */
+      max-height: 200px; /* Altura máxima para a mensagem */
     }
 
     .message .heart {
@@ -121,8 +121,8 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      width: 100px;
-      height: 100px;
+      width: 80px; /* Tamanho do selo */
+      height: 80px;
       background-color: #ff5e5e;
       border-radius: 10px;
       color: white;
@@ -147,6 +147,11 @@
 
     /* Para visualização em dispositivos móveis */
     @media (max-width: 600px) {
+      .container {
+        max-width: 100%; /* Largura total em dispositivos móveis */
+        height: auto; /* Altura automática para dispositivos móveis */
+      }
+
       .message {
         font-size: 14px; /* Diminuir o tamanho da fonte para dispositivos móveis */
       }
@@ -156,8 +161,8 @@
       }
 
       .stamp {
-        width: 80px;
-        height: 80px;
+        width: 60px; /* Ajustar tamanho do selo em dispositivos móveis */
+        height: 60px;
         font-size: 14px;
       }
 
