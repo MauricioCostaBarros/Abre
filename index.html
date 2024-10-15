@@ -17,7 +17,7 @@
       justify-content: center;
       align-items: center;
       font-family: 'Arial', sans-serif;
-      background-color: #bdbaba; /* Fundo cinza bem clarinho */
+      background-color: #ff4c79; /* Fundo cinza bem clarinho */
     }
 
     .container {
@@ -71,28 +71,32 @@
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
       border-radius: 0 0 5px 5px;
-      background-image: repeating-linear-gradient(#000 1px, transparent 1px); /* Linhas horizontais */
+      background-image: repeating-linear-gradient(#f0f0f0 1px, transparent 1px); /* Linhas horizontais */
       background-size: 100% 25px; /* Espaçamento entre as linhas */
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra interna */
     }
 
     .message {
-      font-size: 22px; /* Diminuir o tamanho da fonte */
+      font-size: 20px; /* Diminuir o tamanho da fonte */
       color: #333;
-      font-family: 'Arial', sans-serif; /* Fonte menos cursiva */
+      font-family: cursive; /* Fonte local suavemente cursiva */
       text-align: center;
       line-height: 1.5;
       display: none;
+      padding: 10px; /* Espaço interno */
+      border-radius: 10px; /* Bordas arredondadas */
+      background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
     }
 
     .message .heart {
-      font-size: 30px;
+      font-size: 25px;
       color: red;
     }
 
     .phone-link {
-      color: blue; /* Cor do texto que parece link */
-      text-decoration: underline; /* Sublinhado */
+      color: rgb(77, 77, 235); /* Cor do texto que parece link */
       cursor: pointer; /* Cursor de ponteiro */
+      font-weight: bold; /* Texto em negrito */
     }
 
     .envelope.open .flap {
@@ -106,6 +110,35 @@
 
     .envelope.open .message {
       display: block;
+    }
+
+    /* Estilização do selo */
+    .stamp {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 100px;
+      height: 100px;
+      background-color: #ff5e5e;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      transform: rotate(-10deg);
+    }
+
+    /* Estilização do destinatário/remetente */
+    .address {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #333;
+      font-family: 'Courier New', Courier, monospace; /* Fonte tipo máquina de escrever */
     }
 
     /* Para visualização em dispositivos móveis */
@@ -122,6 +155,24 @@
       .message .heart {
         font-size: 25px;
       }
+
+      .stamp {
+        width: 80px;
+        height: 80px;
+        font-size: 14px;
+      }
+
+      .address {
+        font-size: 14px;
+      }
+    }
+
+    #contador {
+      font-size: 20px;
+      color: #333;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #333;
     }
   </style>
 </head>
@@ -129,13 +180,22 @@
   <div class="container">
     <div class="envelope" id="envelope">
       <div class="flap"></div>
+      <div class="stamp">Selo</div> <!-- Selo -->
+      <div class="address"> <!-- Destinatário e Remetente -->
+        <strong>Destinatário:</strong><br>
+        Futura esposa<br><br>
+        <strong>Remetente:</strong><br>
+        Mauricio Costa
+      </div>
       <div class="letter">
         <div class="message">
-          Sempre que sentir saudade ou achar que eu não te ame, leia esse QR Code.<br>
-          Se não funcionar, ligue para:<br>
-          <span class="phone-link" onclick="window.location.href='tel:+5511999999999'">Amor da sua vida</span> <!-- Altere para seu número -->
-          <br><br>
-          Te amo <span class="heart">❤️</span>
+          Quando se sentir insegura, triste, ou desmotivada com os estudos, leia este QR Code, 
+          ou quando quiser saber o tamanho do meu amor por você, saiba que
+          <strong><div id="contador"></div></strong>
+          É o tempo que eu comecei a descobrir o que era amor, e perceber que cada segundo esse amor aumenta mais...
+          Se nada disso funcionar, ligue para<br>
+          <span class="phone-link" onclick="window.location.href='tel:+5511980198520'">Amor da sua vida</span> 
+          <span class="heart">❤️</span>
         </div>
       </div>
     </div>
@@ -146,6 +206,27 @@
     envelope.addEventListener('click', () => {
       envelope.classList.toggle('open');
     });
+
+    // Defina a data de início para 17 de julho de 2023
+    const dataInicio = new Date('2023-07-17T20:08:00');
+
+    function atualizarContador() {
+        const agora = new Date();
+        const tempoDecorrido = agora - dataInicio;
+
+        // Calcular os dias, horas, minutos e segundos
+        const dias = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((tempoDecorrido % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((tempoDecorrido % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((tempoDecorrido % (1000 * 60)) / 1000); // Calcular segundos
+
+        // Atualizar o conteúdo da div
+        document.getElementById('contador').innerText = `${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+    }
+
+    // Atualizar o contador a cada segundo
+    setInterval(atualizarContador, 1000);
+    atualizarContador(); // Chama a função uma vez para iniciar
   </script>
 </body>
 </html>
