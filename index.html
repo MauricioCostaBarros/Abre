@@ -17,15 +17,15 @@
       justify-content: center;
       align-items: center;
       font-family: 'Arial', sans-serif;
-      background-color: #ff4c79; /* Fundo rosa */
-      padding: 10px; /* Para evitar que o conteúdo grude nas bordas */
+      background-color: #ff4c79; /* Fundo rosa claro */
+      padding: 10px; /* Para evitar que o conteúdo estoure */
     }
 
     .container {
       position: relative;
       width: 100%; /* Largura total */
-      max-width: 600px; /* Limitar a largura no desktop */
-      height: auto; /* Altura do envelope */
+      max-width: 600px; /* Largura máxima do envelope */
+      height: 450px; /* Altura do envelope */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -39,9 +39,10 @@
       background: #d0e8f2; /* Azul clarinho */
       border-radius: 5px;
       overflow: hidden;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.2);
       transform-style: preserve-3d;
       transition: transform 1s ease;
+      padding: 10px; /* Margem interna do envelope */
     }
 
     .flap {
@@ -54,7 +55,9 @@
       transform-origin: top;
       transform: rotateX(0deg);
       transition: transform 0.6s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       clip-path: polygon(0 0, 50% 100%, 100% 0);
+      padding: 5px; /* Margem interna do triângulo */
     }
 
     .letter {
@@ -69,15 +72,28 @@
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
       border-radius: 0 0 5px 5px;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      background-image: repeating-linear-gradient(#f0f0f0 1px, transparent 1px); /* Linhas horizontais */
+      background-size: 100% 25px; /* Espaçamento entre as linhas */
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra interna */
+      overflow: hidden; /* Impedir que o texto estoure */
     }
 
     .message {
-      font-size: 18px; /* Tamanho de fonte legível */
+      font-size: 16px; /* Ajustar o tamanho da fonte para ser menor */
       color: #333;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.5; /* Aumentar o espaçamento entre linhas para legibilidade */
       display: none;
+      padding: 10px; /* Espaço interno */
+      border-radius: 10px; /* Bordas arredondadas */
+      background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
+      overflow-y: auto; /* Adiciona barra de rolagem se necessário */
+      max-height: 300px; /* Altura máxima para a mensagem */
+    }
+
+    .message .heart {
+      font-size: 20px; /* Tamanho do coração ajustado */
+      color: red;
     }
 
     .phone-link {
@@ -104,15 +120,16 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       background-color: #ff5e5e;
       border-radius: 10px;
       color: white;
+      font-weight: bold;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 14px;
+      font-size: 16px;
       transform: rotate(-10deg);
     }
 
@@ -121,16 +138,39 @@
       position: absolute;
       bottom: 10px;
       left: 10px;
-      font-size: 14px;
+      font-size: 14px; /* Tamanho da fonte reduzido */
       line-height: 1.4;
       color: #333;
       font-family: 'Courier New', Courier, monospace; /* Fonte tipo máquina de escrever */
     }
 
+    /* Para visualização em dispositivos móveis */
+    @media (max-width: 600px) {
+      .message {
+        font-size: 14px; /* Diminuir o tamanho da fonte para dispositivos móveis */
+      }
+
+      .message .heart {
+        font-size: 18px; /* Ajustar o tamanho do coração */
+      }
+
+      .stamp {
+        width: 80px;
+        height: 80px;
+        font-size: 14px;
+      }
+
+      .address {
+        font-size: 12px; /* Ajustar tamanho da fonte para destinatário/remetente */
+      }
+    }
+
     #contador {
-      font-size: 18px; /* Tamanho de fonte legível */
+      font-size: 16px; /* Ajustar tamanho da fonte do contador */
       color: #333;
-      margin: 10px 0;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #333;
     }
   </style>
 </head>
@@ -153,6 +193,7 @@
           É o tempo que eu comecei a descobrir o que era amor, e perceber que cada segundo esse amor aumenta mais...
           Se nada disso funcionar, ligue para<br>
           <span class="phone-link" onclick="window.location.href='tel:+5511980198520'">Amor da sua vida</span> 
+          <span class="heart">❤️</span>
         </div>
       </div>
     </div>
