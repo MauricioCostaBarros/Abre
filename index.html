@@ -17,30 +17,32 @@
       justify-content: center;
       align-items: center;
       font-family: 'Arial', sans-serif;
-      background-color: #ff4c79; /* Fundo rosa claro */
-      padding: 10px; /* Para evitar que o conteúdo estoure */
+      background-color: #ff4c79; /* Fundo cinza bem clarinho */
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
     .container {
       position: relative;
-      width: 100%; /* Largura total */
-      max-width: 600px; /* Largura máxima do envelope */
+      width: 600px; /* Largura do envelope */
+      height: 450px; /* Altura do envelope */
       display: flex;
       justify-content: center;
-      align-items: center; /* Centraliza verticalmente */
+      align-items: center;
       perspective: 1000px;
+      margin: 15px; /* Margem em volta do envelope */
     }
 
     .envelope {
       width: 100%;
-      height: 300px; /* Altura inicial do envelope */
+      height: 100%;
       position: relative;
       background: #d0e8f2; /* Azul clarinho */
       border-radius: 5px;
       overflow: hidden;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.2);
       transform-style: preserve-3d;
-      transition: height 0.6s ease; /* Transição de altura suave */
+      transition: transform 1s ease;
       padding: 10px; /* Margem interna do envelope */
     }
 
@@ -61,7 +63,7 @@
 
     .letter {
       width: 100%;
-      height: 100%; /* Para ocupar toda a altura do envelope */
+      height: 100%;
       background: #ffffff;
       padding: 20px;
       display: flex;
@@ -74,24 +76,22 @@
       background-image: repeating-linear-gradient(#f0f0f0 1px, transparent 1px); /* Linhas horizontais */
       background-size: 100% 25px; /* Espaçamento entre as linhas */
       box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra interna */
-      overflow: hidden; /* Impedir que o texto estoure */
     }
 
     .message {
-      font-size: 16px; /* Ajustar o tamanho da fonte para ser menor */
+      font-size: 20px; /* Diminuir o tamanho da fonte */
       color: #333;
+      font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte local suavemente cursiva */
       text-align: center;
-      line-height: 1.5; /* Aumentar o espaçamento entre linhas para legibilidade */
+      line-height: 1.2;
       display: none;
       padding: 10px; /* Espaço interno */
       border-radius: 10px; /* Bordas arredondadas */
       background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
-      overflow-y: auto; /* Adiciona barra de rolagem se necessário */
-      max-height: 150px; /* Altura máxima para a mensagem */
     }
 
     .message .heart {
-      font-size: 20px; /* Tamanho do coração ajustado */
+      font-size: 25px;
       color: red;
     }
 
@@ -99,10 +99,6 @@
       color: rgb(77, 77, 235); /* Cor do texto que parece link */
       cursor: pointer; /* Cursor de ponteiro */
       font-weight: bold; /* Texto em negrito */
-    }
-
-    .envelope.open {
-      height: 400px; /* Altura quando aberto */
     }
 
     .envelope.open .flap {
@@ -123,8 +119,8 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      width: 80px; /* Tamanho do selo */
-      height: 80px;
+      width: 100px;
+      height: 100px;
       background-color: #ff5e5e;
       border-radius: 10px;
       color: white;
@@ -141,47 +137,18 @@
       position: absolute;
       bottom: 10px;
       left: 10px;
-      font-size: 14px; /* Tamanho da fonte reduzido */
+      font-size: 16px;
       line-height: 1.4;
       color: #333;
       font-family: 'Courier New', Courier, monospace; /* Fonte tipo máquina de escrever */
     }
 
     #contador {
-      font-size: 16px; /* Ajustar tamanho da fonte do contador */
+      font-size: 20px;
       color: #333;
       margin-top: 10px;
       margin-bottom: 10px;
       border: 1px solid #333;
-    }
-
-    /* Para visualização em dispositivos móveis */
-    @media (max-width: 600px) {
-      .container {
-        max-width: 100%; /* Largura total em dispositivos móveis */
-      }
-
-      .envelope {
-        height: 250px; /* Altura inicial do envelope em dispositivos móveis */
-      }
-
-      .message {
-        font-size: 14px; /* Diminuir o tamanho da fonte para dispositivos móveis */
-      }
-
-      .message .heart {
-        font-size: 18px; /* Ajustar o tamanho do coração */
-      }
-
-      .stamp {
-        width: 60px; /* Ajustar tamanho do selo em dispositivos móveis */
-        height: 60px;
-        font-size: 14px;
-      }
-
-      .address {
-        font-size: 12px; /* Ajustar tamanho da fonte para destinatário/remetente */
-      }
     }
   </style>
 </head>
