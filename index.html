@@ -24,8 +24,8 @@
     .container {
       position: relative;
       width: 100%; /* Largura total */
-      max-width: 500px; /* Largura máxima do envelope */
-      height: 350px; /* Altura do envelope */
+      max-width: 600px; /* Largura máxima do envelope */
+      height: auto; /* Altura automática para ajustar ao conteúdo */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -34,16 +34,15 @@
 
     .envelope {
       width: 100%;
-      height: 100%;
+      height: 200px; /* Altura inicial do envelope */
       position: relative;
       background: #d0e8f2; /* Azul clarinho */
       border-radius: 5px;
       overflow: hidden;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.2);
       transform-style: preserve-3d;
-      transition: transform 1s ease;
+      transition: height 0.6s ease; /* Transição de altura suave */
       padding: 10px; /* Margem interna do envelope */
-      transform: scale(1); /* Tamanho normal do envelope */
     }
 
     .flap {
@@ -63,7 +62,6 @@
 
     .letter {
       width: 100%;
-      height: 100%;
       background: #ffffff;
       padding: 20px;
       display: flex;
@@ -89,7 +87,7 @@
       border-radius: 10px; /* Bordas arredondadas */
       background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
       overflow-y: auto; /* Adiciona barra de rolagem se necessário */
-      max-height: 200px; /* Altura máxima para a mensagem */
+      max-height: 150px; /* Altura máxima para a mensagem */
     }
 
     .message .heart {
@@ -101,6 +99,10 @@
       color: rgb(77, 77, 235); /* Cor do texto que parece link */
       cursor: pointer; /* Cursor de ponteiro */
       font-weight: bold; /* Texto em negrito */
+    }
+
+    .envelope.open {
+      height: 400px; /* Altura quando aberto */
     }
 
     .envelope.open .flap {
@@ -150,6 +152,10 @@
       .container {
         max-width: 100%; /* Largura total em dispositivos móveis */
         height: auto; /* Altura automática para dispositivos móveis */
+      }
+
+      .envelope {
+        height: 150px; /* Altura inicial do envelope em dispositivos móveis */
       }
 
       .message {
